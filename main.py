@@ -138,5 +138,4 @@ def gameDongsu(players, host, user_name):
             time.sleep(tempo)
 
 
-
 gameDongsu(["주은", "지은", "동근", "기찬", "동수"], "동근", "동수")
