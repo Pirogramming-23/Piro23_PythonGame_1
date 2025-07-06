@@ -70,9 +70,9 @@ def gamegichan(players, user_name):
             if player['name'] == user_name:
                 if not user_turn():
                     print(f"{player['name']}님이 틀렸습니다!")
-                    return
+                    return player['name']
             else:
                 if not cpu_turn(player['name']):
                     print(f"{player['name']}의 차례에서 아이템 풀이 소진되었습니다!")
-                    return
+                    return player['name']
         round_num += 1
