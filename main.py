@@ -101,21 +101,25 @@ def main():
 
         # 선택된 게임 실행
         if game_choice == 1:
-            gamegichan(players, user_name)
+            drinker = gamegichan(players, user_name)
         elif game_choice == 2:
-            gameDongsu(invited_names, current_player, user_name)
+            drinker = gameDongsu(invited_names, current_player, user_name)
         elif game_choice == 3:
-            gamegeun(players, user_name)
+            drinker = gamegeun(players, user_name)
         elif game_choice == 4:
-            gameJieun(invited_names, user_name, name)
+            drinker = gameJieun(invited_names, user_name, name)
         elif game_choice == 5:
-            gameJueun(invite_num+1, 0, invited_names)
+            drinker = gameJueun(invite_num+1, 0, invited_names)
 
         # 게임 결과 시뮬레이션
         print("Nice Game ✨")  # 실제 게임 실행 대신 생략
-        drinker = random.choice(players)
-        drinker["drank"] += 1
-        print(f"\n아 누가누가 술을 마셔🤨 {drinker['name']}(가) 술을 마셔🥴 원~~~샷❗🥤")
+        if not drinker:
+            drinker = random.choice(players)
+        elif isinstance(drinker, str):
+            drinker = next((p for p in players if p["name"] == drinker), None)
+        if drinker:
+            drinker["drank"] += 1
+            print(f"\n아 누가누가 술을 마셔🤨 {drinker['name']}(가) 술을 마셔🥴 원~~~샷❗🥤")
 
         # 상태 갱신
         print("\n현재 상태:")
@@ -135,4 +139,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
