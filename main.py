@@ -99,7 +99,7 @@ def main():
         if game_choice == 1:
             gamegichan(players, user_name)
         elif game_choice == 2:
-            gameDonsu()
+            gameDongsu()
         elif game_choice == 3:
             gamegeun()
         elif game_choice == 4:
