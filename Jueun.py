@@ -54,7 +54,7 @@ def gameJueun(player_number, userindex, playerList):
     except:
         #입력을 제대로 받지 않았을 때
         print("병신샷~ 병신샷~")
-        print(f"아 누가누가 술을 마셔 {playerList[0]}이(가) 술을 마셔 원~~~샷")
+        print(f"아 누가누가 술을 마셔 {playerList[0][0]}이(가) 술을 마셔 원~~~샷")
         return
     else :
         print(f"{n}호선~{n}호션~{n}호선~{n}호선")
@@ -66,20 +66,20 @@ def gameJueun(player_number, userindex, playerList):
             # i가 user인지 확인하기
             if i == userindex :
                 start_time = time.time()
-                ans = input(f"{playerList[i]} : ")
+                ans = input(f"{playerList[i][0]} : ")
                 end_time = time.time()
                 #3초 제한
                 if (end_time - start_time > 3) :
                     print("3초 지남ㅋ")
-                    print(f"아 누가누가 술을 마셔 {playerList[i]}이(가) 술을 마셔 원~~~샷")
+                    print(f"아 누가누가 술을 마셔 {playerList[i][0]}이(가) 술을 마셔 원~~~샷")
                     return playerList[i]
                 # Subway에 없는 것을 입력했을 때
                 elif not ans in Subway[n-1] :
-                    print(f"아 누가누가 술을 마셔 {playerList[i]}이(가) 술을 마셔 원~~~샷")
+                    print(f"아 누가누가 술을 마셔 {playerList[i][0]}이(가) 술을 마셔 원~~~샷")
                     return playerList[i]
                 # 이미 누군가 했던 지하철 역을 입력했을 때
                 elif check[Subway[n-1].index(ans)] == 1:
-                    print(f"아 누가누가 술을 마셔 {playerList[i]}이(가) 술을 마셔 원~~~샷")
+                    print(f"아 누가누가 술을 마셔 {playerList[i][0]}이(가) 술을 마셔 원~~~샷")
                     return playerList[i]
                 else :
                     # 한번 나온 지하철 역은 check하기

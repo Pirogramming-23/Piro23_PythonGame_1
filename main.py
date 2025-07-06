@@ -1,4 +1,3 @@
-
 from donggeun import *
 from gichan import *
 from jieun import *
@@ -110,7 +109,7 @@ def main():
         elif game_choice == 4:
             gameJieun()
         elif game_choice == 5:
-            gameJueun()
+            gameJueun(invite_num+1, 0, players)
 
         # 게임 결과 시뮬레이션
         print("Nice Game ✨")  # 실제 게임 실행 대신 생략
