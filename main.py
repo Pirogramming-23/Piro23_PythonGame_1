@@ -1,1 +1,1 @@
-import jieun
+from jieun import gameJieun
