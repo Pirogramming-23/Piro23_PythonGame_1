@@ -25,12 +25,19 @@ def printResponse(computer, fruit, weight):
     
 #플레이어 리스트, 게임을 선택한 사람, 유저의 이름(컴퓨터가 아닌 사람)
 def gameDongsu(players, host, user_name):
+    if user_name not in players:
+        players.append(user_name)
     tempo = 1 #게임의 템포를 나타내는 변수. 게임이 진행될수록 점점 빨라짐
     fruits = ["딸기", "당근", "수박", "참외", "메론"]
     print("🍓딸기당근수박참외메론게임~! 지목!")
-    time.sleep(tempo)
+    time.sleep(1)
     print("🍓딸기당근수박참외메론게임~! 지목!")
-    time.sleep(tempo)
+    time.sleep(1)
+    print("====== 참여하는 인원 =======")
+    for i in range(len(players)):
+        print(f'{i+1}. {players[i]}')
+    print("============================")
+    time.sleep(1)
     
     cur_player = host #지금 말하는 사람의 이름
     next_player = ""
@@ -59,11 +66,11 @@ def gameDongsu(players, host, user_name):
     
     #게임을 시작하는 사람이 컴퓨터인 경우
     else:
-        next_player_idx = random.randint(0, 4) #랜덤으로 지목할 사람을 고름
+        next_player_idx = random.randint(0, len(players)-1) #랜덤으로 지목할 사람을 고름
         next_player = players[next_player_idx]
         #본인이 아닌 다음 사람이 나올때까지 랜덤을 돌림
         while next_player == cur_player:
-            next_player_idx = random.randint(0, 4)
+            next_player_idx = random.randint(0, len(players)-4)
             next_player = players[next_player_idx]
         next_fruit = fruits[random.randint(0, 4)] #과일도 랜덤으로 고름
         print(f'{cur_player} : {next_player} {next_fruit}!')
@@ -127,11 +134,11 @@ def gameDongsu(players, host, user_name):
                 return cur_player
 
             time.sleep(tempo)
-            next_player_idx = random.randint(0, 4) #랜덤으로 지목할 사람을 고름
+            next_player_idx = random.randint(0, len(players)-1) #랜덤으로 지목할 사람을 고름
             next_player = players[next_player_idx]
             #본인이 아닌 다음 사람이 나올때까지 랜덤을 돌림
             while next_player == cur_player:
-                next_player_idx = random.randint(0, 4)
+                next_player_idx = random.randint(0, len(players)-1)
                 next_player = players[next_player_idx]
             next_fruit = fruits[random.randint(0, 4)] #과일도 랜덤으로 고름
             print(f'{cur_player} : {next_player} {next_fruit}!')

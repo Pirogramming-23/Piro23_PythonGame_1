@@ -103,7 +103,7 @@ def main():
         if game_choice == 1:
             drinker = gamegichan(players, user_name)
         elif game_choice == 2:
-            drinker = gameDongsu(invited_names, current_player, user_name)
+            drinker = gameDongsu(invited_names, current_player["name"], user_name)
         elif game_choice == 3:
             drinker = gamegeun(players, user_name)
         elif game_choice == 4:
