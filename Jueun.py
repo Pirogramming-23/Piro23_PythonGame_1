@@ -92,6 +92,3 @@ def gameJueun(player_number, userindex, playerList):
                         break
                 print(f"{playerList[i]} : {Subway[n-1][r]}")
                 check[r] = 1
-
-
-gameJueun(3, 0, ['주은', '지은', '동수'])
