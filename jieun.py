@@ -19,6 +19,7 @@ def gameJieun(player_list, host, user_name):
             else:
                 break
     else:
+        # 컴퓨터는 랜덤으로 층 수 결정
         floor = random.randint(5, 30)
         
     print(f"{floor}층!")
