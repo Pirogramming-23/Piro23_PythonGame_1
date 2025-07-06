@@ -108,7 +108,7 @@ def main():
         elif game_choice == 3:
             gamegeun()
         elif game_choice == 4:
-            gameJieun(players, user_name, name)
+            gameJieun(invited_names, user_name, name)
         elif game_choice == 5:
             gameJueun()
 
