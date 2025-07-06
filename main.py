@@ -1,4 +1,7 @@
 from gichan import *
+from jieun import *
+from Jueun import *
+from dongsu import *
 
 #플레이어 설정
 #동수,지은,기찬,주은,동근에 대한 이름과 치사량 저장
