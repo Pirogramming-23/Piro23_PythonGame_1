@@ -49,12 +49,12 @@ def gameDongsu(players, host, user_name):
             next_fruit = cur_input[1]
         #아예 입력을 잘못한 경우 바로 고로시(?)
         except:
-            print(f'누가 술을 마셔! {cur_player}(이)가 술을 마셔! 원~~~샷---!!')
+            print(f'아 누가누가 술을 마셔🤨 {cur_player}(이)가 술을 마셔🥴 원~~~샷❗🥤')
             return cur_player
 
         #본인을 다음 사람으로 지목한 경우 or 다음 사람 이름을 잘못 입력한 경우 or 과일을 잘못 입력한 경우 -> 패배
         if (next_player == cur_player) or (next_player not in players) or (next_fruit not in fruits):
-            print(f'누가 술을 마셔! {cur_player}(이)가 술을 마셔! 원~~~샷---!!')
+            print(f'아 누가누가 술을 마셔🤨 {cur_player}(이)가 술을 마셔🥴 원~~~샷❗🥤')
             return cur_player
     
     #게임을 시작하는 사람이 컴퓨터인 경우
@@ -72,13 +72,13 @@ def gameDongsu(players, host, user_name):
 
     #여기부터 본격적으로 게임 플레이
 
-    #컴퓨터는 80% 확률로 자기 차례에 성공을 하는데, 이러면 유저가 한번도 입력하지 않고도 컴퓨터끼리 싸워서 게임이 끝날 때가 있음.
+    #컴퓨터는 85% 확률로 자기 차례에 성공을 하는데, 이러면 유저가 한번도 입력하지 않고도 컴퓨터끼리 싸워서 게임이 끝날 때가 있음.
     #때문에 가중치를 더해주다가 유저가 한번이라도 입력하고 나면 가중치를 0으로 바꿈
     weight = -1
     while True:
         cur_player = next_player #이전에 next_player 으로 지목 받은 사람이 cur_player가 됨
         cur_fruit = next_fruit #이전에 next_fruit 이었던 과일이 cur_fruit 이 됨
-        tempo = max(0.3, tempo - 0.05)
+        tempo = max(0.3, tempo - 0.05) #게임 템포를 점점 올림
         #유저(컴퓨터가 아닌 사람)이 cur_player인 경우
         if cur_player == user_name:
             weight = 0 #유저가 한 번 차례를 맞이했으므로 컴퓨터가 실패할 확률을 만듦
@@ -89,11 +89,11 @@ def gameDongsu(players, host, user_name):
             time.sleep(tempo)
 
             if elapsed_time >= 4.5:
-                print("박자는 생명! 박자는 생명!")
-                print(f'누가 술을 마셔! {cur_player}(이)가 술을 마셔! 원~~~샷---!!')
+                print("박자는 생명!🎵 박자는 생명!🎵")
+                print(f'아 누가누가 술을 마셔🤨 {cur_player}(이)가 술을 마셔🥴 원~~~샷❗🥤')
                 return cur_player
             if not checkResponse(response, cur_fruit):
-                print(f'누가 술을 마셔! {cur_player}(이)가 술을 마셔! 원~~~샷---!!')
+                print(f'아 누가누가 술을 마셔🤨 {cur_player}(이)가 술을 마셔🥴 원~~~샷❗🥤')
                 return cur_player
             
             start_time = time.time()
@@ -102,8 +102,8 @@ def gameDongsu(players, host, user_name):
             elapsed_time = end_time - start_time
             time.sleep(tempo)
             if elapsed_time >= 4.5:
-                print("박자는 생명! 박자는 생명!")
-                print(f'누가 술을 마셔! {cur_player}(이)가 술을 마셔! 원~~~샷---!!')
+                print("박자는 생명!🎵 박자는 생명!🎵")
+                print(f'아 누가누가 술을 마셔🤨 {cur_player}(이)가 술을 마셔🥴 원~~~샷❗🥤')
                 return cur_player
             
             try:
@@ -112,18 +112,18 @@ def gameDongsu(players, host, user_name):
                 next_fruit = cur_input[1]
             #아예 입력을 잘못한 경우 바로 고로시(??)
             except:
-                print(f'누가 술을 마셔! {cur_player}(이)가 술을 마셔! 원~~~샷---!!')
+                print(f'아 누가누가 술을 마셔🤨 {cur_player}(이)가 술을 마셔🥴 원~~~샷❗🥤')
                 return cur_player
             #본인을 다음 사람으로 지목한 경우 or 다음 사람 이름을 잘못 입력한 경우 or 과일을 잘못 입력한 경우 -> 패배
             if (next_player == cur_player) or (next_player not in players) or (next_fruit not in fruits):
-                print(f'누가 술을 마셔! {cur_player}(이)가 술을 마셔! 원~~~샷---!!')
+                print(f'아 누가누가 술을 마셔🤨 {cur_player}(이)가 술을 마셔🥴 원~~~샷❗🥤')
                 return cur_player
         
         #컴퓨터가 cur_player인 경우
         else:
             #20% 확률로 응답에 실패했을 경우 고로시 + 게임 종료
             if not printResponse(cur_player, cur_fruit, weight):
-                print(f'누가 술을 마셔! {cur_player}(이)가 술을 마셔! 원~~~샷---!!')
+                print(f'아 누가누가 술을 마셔🤨 {cur_player}(이)가 술을 마셔🥴 원~~~샷❗🥤')
                 return cur_player
 
             time.sleep(tempo)
