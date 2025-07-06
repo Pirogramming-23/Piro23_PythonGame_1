@@ -4,20 +4,27 @@ import time
 
 ######## 아파트 게임 함수 ########
 # 총 player를 list로 받음 - 추후 수정 가능
-def gameJieun(player_list, host, user_name):
+def gameJieun(invited_names, user_name, host):
+    
+    player_list = invited_names.copy()
+    if user_name not in player_list:
+        player_list.append(user_name)
     
     print("아 파트 아파트~🎶 아 파트 아파트~~🎶🎶")
     
     # input 받기
     if host == user_name:
         while True:
-            floor = int(input("층 수를 입력해주세요(5 이상 30 이하의 정수) : "))
-            if floor < 5:
-                print("5 이상의 숫자를 입력해주세요")
-            elif floor > 30:
-                print("30 이하의 숫자를 입력해주세요")
-            else:
-                break
+            try:
+                floor = int(input("층 수를 입력해주세요(5 이상 30 이하의 정수) : "))
+                if floor < 5:
+                    print("5 이상의 숫자를 입력해주세요")
+                elif floor > 30:
+                    print("30 이하의 숫자를 입력해주세요")
+                else:
+                    break
+            except ValueError:
+                print("5 이상 30 이하의 정수를 입력해주세요!")
     else:
         # 컴퓨터는 랜덤으로 층 수 결정
         floor = random.randint(5, 30)
@@ -47,7 +54,7 @@ def gameJieun(player_list, host, user_name):
     return target
     
 if __name__ == "__main__":
-    player_list = [1, 2, 3, 4]
+    player_list = [2, 3, 4]
     #gameJieun(player_list, 1, 3) # 컴퓨터 진행 게임
     gameJieun(player_list, 1, 1) # 사용자 진행 게임
     
