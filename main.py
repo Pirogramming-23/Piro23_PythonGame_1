@@ -37,7 +37,7 @@ def gamegeun(players, user_name):
             
             if elapsed_time > 4:
                 print("⏱️박자는 생명 생명 생명!")
-                print(f"❌ '누가 술을 마셔 {cur_player}(이)가 술을 마셔~! 원~샷!")
+                print(f"❌ 누가 술을 마셔 {cur_player}(이)가 술을 마셔~! 원~샷!")
                 break
         else:
             # 컴퓨터 차례 - 실력에 따라 정답/오답 결정
@@ -64,7 +64,7 @@ def gamegeun(players, user_name):
         # 정답인지 확인하고 틀렸으면 게임 종료
         if response != expected:
             print(f"❌ 틀렸습니다! 정답은 '{expected}' 였습니다.")
-            print(f"❌ '누가 술을 마셔 {cur_player}(이)가 술을 마셔~! 원~샷!")
+            print(f"❌ 누가 술을 마셔 {cur_player}(이)가 술을 마셔~! 원~샷!")
             break
 
         # 다음 사람 차례로 넘어가기
