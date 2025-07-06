@@ -136,6 +136,3 @@ def gameDongsu(players, host, user_name):
             next_fruit = fruits[random.randint(0, 4)] #과일도 랜덤으로 고름
             print(f'{cur_player} : {next_player} {next_fruit}!')
             time.sleep(tempo)
-
-
-gameDongsu(["주은", "지은", "동근", "기찬", "동수"], "동근", "동수")
