@@ -8,7 +8,7 @@ def count_claps(number):
 def gamegeun(players, user_name):
     print("🎮 3,6,9 게임 시작!")
     print("삼 육구삼육구~ 삼 육구삼육구~")
-    print(f"플레이어: {', '.join(players)} (사용자: {user_name})")
+    print(f"플레이어: {', '.join([p['name'] if isinstance(p, dict) else p for p in players])} (사용자: {user_name})")
     print("-" * 50)
 
     number = 1
@@ -18,13 +18,17 @@ def gamegeun(players, user_name):
     # 각 플레이어별 실력 설정 (컴퓨터는 95-98% 정답률)
     player_skills = {}
     for player in players:
-        if player == user_name:
-            player_skills[player] = 1.0  
+        if isinstance(player, dict):
+            name = player['name']
         else:
-            player_skills[player] = random.uniform(0.95, 0.98)  
+            name = player
+        if name == user_name:
+            player_skills[name] = 1.0
+        else:
+            player_skills[name] = random.uniform(0.95, 0.98)
 
     while True:
-        cur_player = players[cur_idx]
+        cur_player = players[cur_idx]['name'] if isinstance(players[cur_idx], dict) else players[cur_idx]
         expected = "짝" * count_claps(number) if count_claps(number) > 0 else str(number)
         
         print(f"\n👉 {cur_player} 차례! (숫자: {number})")
@@ -75,6 +79,3 @@ def gamegeun(players, user_name):
     print("\n🎯 게임 종료!")
     print(f"최종 숫자: {number-1}")
 
-# 예시 실행
-if __name__ == "__main__":
-    gamegeun(["동근", "지은", "기찬", "주은"], "동근")
