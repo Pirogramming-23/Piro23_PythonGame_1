@@ -40,7 +40,7 @@ def gamegeun(players, user_name):
             elapsed_time = time.time() - start_time
             
             if elapsed_time > 4:
-                print("⏱️박자는 생명 생명 생명!")
+                print("⏱️ 박자는 생명 생명 생명!")
                 print(f"❌ 누가 술을 마셔 {cur_player}(이)가 술을 마셔~! 원~샷!")
                 return cur_player
         else:

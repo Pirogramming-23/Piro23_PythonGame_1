@@ -15,13 +15,12 @@ item_pool = ["사과", "배", "수박", "책", "모자", "바지", "치약", "�
 def user_turn():
     print("지금까지의 물건을 순서대로 입력하세요.")
     for i, item in enumerate(sequence):
-        signal.signal(signal.SIGALRM, timeout_handler)
 
-        try:
-            signal.alarm(3)  # 3초 제한
-            answer = input(f"{i+1}번째 물건 (3초 내 입력): ")
-            signal.alarm(0)
-        except TimeoutException:
+        start_time = time.time()  # 3초 제한
+        answer = input(f"{i+1}번째 물건 (3초 내 입력): ")
+        end_time = time.time()
+        elapsed_time = end_time - start_time
+        if elapsed_time >= 3:
             print("\n⏰ 시간 초과! 게임 오버.")
             return False
         if answer.strip() != item:
