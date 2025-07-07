@@ -137,7 +137,7 @@ def gameDongsu(players, host, user_name):
         
         #컴퓨터가 cur_player인 경우
         else:
-            #20% 확률로 응답에 실패했을 경우 고로시 + 게임 종료
+            #15% 확률로 응답에 실패했을 경우 고로시 + 게임 종료
             if not printResponse(cur_player, cur_fruit, weight):
                 print(f'아 누가누가 술을 마셔🤨 {cur_player}(이)가 술을 마셔🥴 원~~~샷❗🥤')
                 time.sleep(1)
