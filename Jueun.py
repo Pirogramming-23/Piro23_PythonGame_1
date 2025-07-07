@@ -43,8 +43,8 @@ def gameJueun(player_number, userindex, playerList):
                     '국회의사당', '여의도', '샛강', '노량진', '노들', '흑석', '동작', '구반포', '신반포', '고속터미널', '사평', '신논현', '언주',
                     '선정릉', '삼성중앙', '봉은사', '종합운동장', '삼전','석촌고분', '석촌', '송파나루', '한성백제', '올림픽공원',
                     '둔촌오륜', '중앙보훈병원']]
-    check = [0] * 100
-
+    check = [0] * 100 #나온 지하철 체크
+    cnt = 0 #지하철 역 개수 count
     print("지하철~지하철~지하철~지하철~🚆🚆🚆")
 
     try:
@@ -54,8 +54,7 @@ def gameJueun(player_number, userindex, playerList):
     except:
         #입력을 제대로 받지 않았을 때
         print("병신샷~ 병신샷~")
-        print(f"아 누가누가 술을 마셔 {playerList[0]}이(가) 술을 마셔 원~~~샷")
-        return
+        return playerList[0]
     else :
         print(f"{n}호선~{n}호션~{n}호선~{n}호선")
 
@@ -66,29 +65,30 @@ def gameJueun(player_number, userindex, playerList):
             # i가 user인지 확인하기
             if i == userindex :
                 start_time = time.time()
-                ans = input(f"{playerList[i]} : ")
+                ans = input(f"{playerList[i]['name']} : ")
                 end_time = time.time()
                 #3초 제한
                 if (end_time - start_time > 3) :
                     print("3초 지남ㅋ")
-                    print(f"아 누가누가 술을 마셔 {playerList[i]}이(가) 술을 마셔 원~~~샷")
                     return playerList[i]
                 # Subway에 없는 것을 입력했을 때
                 elif not ans in Subway[n-1] :
-                    print(f"아 누가누가 술을 마셔 {playerList[i]}이(가) 술을 마셔 원~~~샷")
                     return playerList[i]
                 # 이미 누군가 했던 지하철 역을 입력했을 때
                 elif check[Subway[n-1].index(ans)] == 1:
-                    print(f"아 누가누가 술을 마셔 {playerList[i]}이(가) 술을 마셔 원~~~샷")
                     return playerList[i]
                 else :
                     # 한번 나온 지하철 역은 check하기
                     check[Subway[n-1].index(ans)] = 1
+                    cnt += 1
             else :
                 #랜덤으로 체크되지 않은 지하철 역이 나올 때까지
+                if cnt >= len(Subway[n-1]) :
+                    return playerList[i]
                 while True:
-                    r = random.randint(0, len(Subway[n-1]))
+                    r = random.randint(0, len(Subway[n-1])-1)
                     if check[r] == 0:
                         break
-                print(f"{playerList[i]} : {Subway[n-1][r]}")
+                print(f"{playerList[i]['name']} : {Subway[n-1][r]}")
                 check[r] = 1
+                cnt += 1
