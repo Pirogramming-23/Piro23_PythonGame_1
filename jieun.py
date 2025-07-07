@@ -49,7 +49,7 @@ def gameJieun(invited_names, user_name, host):
                 target = hand.split(" ")[0]
                 break
             print(f"{hand} : {call_num}!")
-    
+    print(f"\n아 누가누가 술을 마셔🤨 {drinker['name']}(가) 술을 마셔🥴 원~~~샷❗🥤")
     return target
     
 if __name__ == "__main__":
