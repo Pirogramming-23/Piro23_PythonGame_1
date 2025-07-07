@@ -147,7 +147,7 @@ def main():
             drinker = next((p for p in players if p["name"] == drinker), None)
         if drinker:
             drinker["drank"] += 1
-            if game_choice == 1:
+            if game_choice == 1 or 4 or 5:
                 print(f"\n아 누가누가 술을 마셔🤨 {drinker['name']}(가) 술을 마셔🥴 원~~~샷❗🥤")
                 time.sleep(1)
 
