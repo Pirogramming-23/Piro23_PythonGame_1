@@ -83,19 +83,29 @@ def main():
         time.sleep(1)
 
     # 게임 리스트 출력
-    print("\n🍺 오늘의 ALCOHOL GAME 🍺")
-    print("1. 시장에 가면 게임")
-    print("2. 딸기당근수박참외메론 게임")
-    print("3. 369 게임")
-    print("4. 아파트 게임")
-    print("5. 지하철 게임")
-    time.sleep(1)
+    #print("\n🍺 오늘의 ALCOHOL GAME 🍺")
+    #print("1. 시장에 가면 게임")
+    #print("2. 딸기당근수박참외메론 게임")
+    #print("3. 369 게임")
+    #print("4. 아파트 게임")
+    #print("5. 지하철 게임")
+    #time.sleep(1)
 
     # 게임 루프
     turn = 0
     while True:
         current_player = players[turn % len(players)]
         name = current_player['name']
+        
+        # 게임 리스트 출력
+        print("\n🍺 오늘의 ALCOHOL GAME 🍺")
+        print("1. 시장에 가면 게임")
+        print("2. 딸기당근수박참외메론 게임")
+        print("3. 369 게임")
+        print("4. 아파트 게임")
+        print("5. 지하철 게임")
+        time.sleep(1)
+    
         if name == user_name:
             try:
                 game_choice = int(input(f"\n{name}(이)가 좋아하는 랜덤 게임~ 랜덤 게임~ 무슨게임? (1~5 입력) : "))

@@ -50,7 +50,7 @@ def gameJieun(invited_names, user_name, host):
                 break
             print(f"{hand} : {call_num}!")
     
-    print(f"아 누가 술을 마셔 {target}(이)가 술을 마셔~~ 원~샷!")
+    print(f'아 누가누가 술을 마셔🤨 {target}(이)가 술을 마셔🥴 원~~~샷❗🥤')
     return target
     
 if __name__ == "__main__":
