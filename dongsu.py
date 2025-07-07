@@ -72,7 +72,7 @@ def gameDongsu(players, host, user_name):
         next_player = players[next_player_idx]
         #본인이 아닌 다음 사람이 나올때까지 랜덤을 돌림
         while next_player == cur_player:
-            next_player_idx = random.randint(0, len(players)-4)
+            next_player_idx = random.randint(0, len(players)-1)
             next_player = players[next_player_idx]
         next_fruit = fruits[random.randint(0, 4)] #과일도 랜덤으로 고름
         print(f'{cur_player} : {next_player} {next_fruit}!')
