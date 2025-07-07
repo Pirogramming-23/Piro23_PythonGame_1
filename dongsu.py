@@ -57,11 +57,13 @@ def gameDongsu(players, host, user_name):
         #아예 입력을 잘못한 경우 바로 고로시(?)
         except:
             print(f'아 누가누가 술을 마셔🤨 {cur_player}(이)가 술을 마셔🥴 원~~~샷❗🥤')
+            time.sleep(1)
             return cur_player
 
         #본인을 다음 사람으로 지목한 경우 or 다음 사람 이름을 잘못 입력한 경우 or 과일을 잘못 입력한 경우 -> 패배
         if (next_player == cur_player) or (next_player not in players) or (next_fruit not in fruits):
             print(f'아 누가누가 술을 마셔🤨 {cur_player}(이)가 술을 마셔🥴 원~~~샷❗🥤')
+            time.sleep(1)
             return cur_player
     
     #게임을 시작하는 사람이 컴퓨터인 경우
@@ -97,10 +99,13 @@ def gameDongsu(players, host, user_name):
 
             if elapsed_time >= 4.5:
                 print("박자는 생명!🎵 박자는 생명!🎵")
+                time.sleep(1)
                 print(f'아 누가누가 술을 마셔🤨 {cur_player}(이)가 술을 마셔🥴 원~~~샷❗🥤')
+                time.sleep(1)
                 return cur_player
             if not checkResponse(response, cur_fruit):
                 print(f'아 누가누가 술을 마셔🤨 {cur_player}(이)가 술을 마셔🥴 원~~~샷❗🥤')
+                time.sleep(1)
                 return cur_player
             
             start_time = time.time()
@@ -110,7 +115,9 @@ def gameDongsu(players, host, user_name):
             time.sleep(tempo)
             if elapsed_time >= 4.5:
                 print("박자는 생명!🎵 박자는 생명!🎵")
+                time.sleep(1)
                 print(f'아 누가누가 술을 마셔🤨 {cur_player}(이)가 술을 마셔🥴 원~~~샷❗🥤')
+                time.sleep(1)
                 return cur_player
             
             try:
@@ -120,10 +127,12 @@ def gameDongsu(players, host, user_name):
             #아예 입력을 잘못한 경우 바로 고로시(??)
             except:
                 print(f'아 누가누가 술을 마셔🤨 {cur_player}(이)가 술을 마셔🥴 원~~~샷❗🥤')
+                time.sleep(1)
                 return cur_player
             #본인을 다음 사람으로 지목한 경우 or 다음 사람 이름을 잘못 입력한 경우 or 과일을 잘못 입력한 경우 -> 패배
             if (next_player == cur_player) or (next_player not in players) or (next_fruit not in fruits):
                 print(f'아 누가누가 술을 마셔🤨 {cur_player}(이)가 술을 마셔🥴 원~~~샷❗🥤')
+                time.sleep(1)
                 return cur_player
         
         #컴퓨터가 cur_player인 경우
@@ -131,6 +140,7 @@ def gameDongsu(players, host, user_name):
             #20% 확률로 응답에 실패했을 경우 고로시 + 게임 종료
             if not printResponse(cur_player, cur_fruit, weight):
                 print(f'아 누가누가 술을 마셔🤨 {cur_player}(이)가 술을 마셔🥴 원~~~샷❗🥤')
+                time.sleep(1)
                 return cur_player
 
             time.sleep(tempo)
