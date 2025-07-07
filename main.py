@@ -133,6 +133,12 @@ def main():
             drinker = gameJueun(invite_num+1, 0, players)
 
         # 게임 결과 시뮬레이션
+        if not drinker:
+            drinker = random.choice(players)
+        elif isinstance(drinker, str):
+            drinker = next((p for p in players if p["name"] == drinker), None)
+        if drinker:
+            drinker["drank"] += 1
         print("""                                                                                                            
                  ___   ___                                                                                  
     /|    / /       / /        //   ) )     //   / /       //   ) )     // | |     /|    //| |     //   / / 
@@ -141,15 +147,6 @@ def main():
  //  | / /       / /        //           //             //    / /    //    | |  //  | //   | |  //          
 //   |/ /     __/ /___     ((____/ /    //____/ /      ((____/ /    //     | | //   |//    | | //____/ / """) 
         time.sleep(1)
-        if not drinker:
-            drinker = random.choice(players)
-        elif isinstance(drinker, str):
-            drinker = next((p for p in players if p["name"] == drinker), None)
-        if drinker:
-            drinker["drank"] += 1
-            if game_choice == 1 or 4 or 5:
-                print(f"\n아 누가누가 술을 마셔🤨 {drinker['name']}(가) 술을 마셔🥴 원~~~샷❗🥤")
-                time.sleep(1)
 
         # 상태 갱신
         print("\n현재 상태:")
