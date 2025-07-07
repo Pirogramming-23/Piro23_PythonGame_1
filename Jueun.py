@@ -55,6 +55,7 @@ def gameJueun(player_number, userindex, playerList):
     except:
         #입력을 제대로 받지 않았을 때
         print("병신샷~ 병신샷~")
+        print(f'아 누가누가 술을 마셔🤨 {playerList[i]['name']}(이)가 술을 마셔🥴 원~~~샷❗🥤')
         return playerList[0]
     else :
         print(f"{n}호선~{n}호션~{n}호선~{n}호선")
