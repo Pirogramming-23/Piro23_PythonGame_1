@@ -48,7 +48,7 @@ def gameJueun(player_number, userindex, playerList):
     print("지하철~지하철~지하철~지하철~🚆🚆🚆")
 
     try:
-        n = int(input("몇~호선~? 몇~호선~? 몇~호선~? 몇~호선~?(1, 2, 3, 4, 5, 6, 7, 8, 9중에서 선택)"))
+        n = int(input("몇~호선~? 몇~호선~? 몇~호선~? 몇~호선~?(1, 2, 3, 4, 5, 6, 7, 8, 9중에서 선택) : "))
         if not n in [1, 2, 3, 4, 5, 6, 7, 8, 9]:
             raise Exception
     except:
@@ -92,3 +92,4 @@ def gameJueun(player_number, userindex, playerList):
                 print(f"{playerList[i]['name']} : {Subway[n-1][r]}")
                 check[r] = 1
                 cnt += 1
+            time.sleep(1)
